@@ -1,6 +1,7 @@
 package com.ricardo.biblioteca.services;
 
 import com.ricardo.biblioteca.models.Autor;
+import com.ricardo.biblioteca.models.exceptions.ObjectNotFoundException;
 import com.ricardo.biblioteca.repositories.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class AutorService {
     private AutorRepository repo;
 
     public Autor getById(long id) {
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Autor não encontrado!"));
     }
 
     public List<Autor> getAll() {

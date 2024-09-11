@@ -1,6 +1,7 @@
 package com.ricardo.biblioteca.services;
 
 import com.ricardo.biblioteca.models.Perfil;
+import com.ricardo.biblioteca.models.exceptions.ObjectNotFoundException;
 import com.ricardo.biblioteca.repositories.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class PerfilService {
     private PerfilRepository repo;
 
     public Perfil getById(long id) {
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Perfil não encontrado!"));
     }
 
     public List<Perfil> getAll() {

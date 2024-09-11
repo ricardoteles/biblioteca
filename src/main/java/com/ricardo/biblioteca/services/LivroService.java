@@ -1,6 +1,7 @@
 package com.ricardo.biblioteca.services;
 
 import com.ricardo.biblioteca.models.Livro;
+import com.ricardo.biblioteca.models.exceptions.ObjectNotFoundException;
 import com.ricardo.biblioteca.repositories.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class LivroService {
     private LivroRepository repo;
 
     public Livro getById(long id) {
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Livro não encontrado!"));
     }
 
     public List<Livro> getAll() {

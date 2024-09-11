@@ -1,6 +1,7 @@
 package com.ricardo.biblioteca.services;
 
 import com.ricardo.biblioteca.models.Categoria;
+import com.ricardo.biblioteca.models.exceptions.ObjectNotFoundException;
 import com.ricardo.biblioteca.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class CategoriaService {
     private CategoriaRepository repo;
 
     public Categoria getById(long id) {
-        return repo.findById(id).orElse(null);
+        return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Categoria não encontrada!"));
     }
 
     public List<Categoria> getAll() {
