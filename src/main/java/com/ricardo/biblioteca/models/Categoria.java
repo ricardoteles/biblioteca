@@ -1,15 +1,16 @@
 package com.ricardo.biblioteca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 public class Categoria {
     @Id
@@ -17,6 +18,7 @@ public class Categoria {
     private long id;
     private String nome;
 
-    @ManyToMany(mappedBy = "categorias")
-    private Set<Livro> livros;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "categorias")
+    private Set<Livro> livros = new HashSet<>();
 }

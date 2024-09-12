@@ -1,15 +1,16 @@
 package com.ricardo.biblioteca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 public class Autor {
     @Id
@@ -21,6 +22,7 @@ public class Autor {
     @JoinColumn(name="id_perfil")
     private Perfil perfil;
 
-    @OneToMany(mappedBy = "autor")
-    private List<Livro> livros;
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "autor")
+    private List<Livro> livros = new ArrayList<>();
 }
