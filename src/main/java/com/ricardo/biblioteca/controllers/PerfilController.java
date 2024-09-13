@@ -1,5 +1,6 @@
 package com.ricardo.biblioteca.controllers;
 
+import com.ricardo.biblioteca.controllers.swagger.PerfilSwagger;
 import com.ricardo.biblioteca.models.Perfil;
 import com.ricardo.biblioteca.services.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/perfis")
-public class PerfilController {
+public class PerfilController implements PerfilSwagger {
     @Autowired
     private PerfilService service;
 

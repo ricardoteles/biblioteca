@@ -60,3 +60,9 @@ Aqui está uma representação gráfica básica dos relacionamentos:
 - **[Autor]** e **[Perfil]**: Relacionamento OneToOne (um autor tem exatamente um perfil, e cada perfil pertence a um único autor).
 - **[Livro]** e **[Autor]**: Relacionamento ManyToOne (muitos livros podem ser escritos por um único autor, mas cada livro tem apenas um autor).
 - **[Livro]** e **[Categoria]**: Relacionamento ManyToMany (um livro pode ter várias categorias e uma categoria pode incluir vários livros).
+
+#### Swagger
+
+- A documentação do projeto encontra-se nessa url: http://localhost:8080/swagger-ui/index.html
+
+- Para mais informações, acessar o link da documentação: https://springdoc.org/

@@ -1,5 +1,6 @@
 package com.ricardo.biblioteca.controllers;
 
+import com.ricardo.biblioteca.controllers.swagger.AutorSwagger;
 import com.ricardo.biblioteca.services.AutorService;
 import com.ricardo.biblioteca.models.Autor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/autores")
-public class AutorController {
+public class AutorController implements AutorSwagger {
 
     @Autowired
     private AutorService service;

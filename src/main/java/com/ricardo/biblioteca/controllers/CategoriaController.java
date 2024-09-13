@@ -1,5 +1,6 @@
 package com.ricardo.biblioteca.controllers;
 
+import com.ricardo.biblioteca.controllers.swagger.CategoriaSwagger;
 import com.ricardo.biblioteca.models.Categoria;
 import com.ricardo.biblioteca.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categorias")
-public class CategoriaController {
+public class CategoriaController implements CategoriaSwagger {
     @Autowired
     private CategoriaService service;
 

@@ -1,5 +1,6 @@
 package com.ricardo.biblioteca.controllers;
 
+import com.ricardo.biblioteca.controllers.swagger.LivroSwagger;
 import com.ricardo.biblioteca.models.Livro;
 import com.ricardo.biblioteca.services.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/livros")
-public class LivroController {
+public class LivroController implements LivroSwagger {
     @Autowired
     private LivroService service;
 
